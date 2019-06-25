@@ -1,24 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <Title>Dinner Picker</Title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="scripts/index.js"></script>
-  </head>
-  <body>
-    <header>
-      <h1>Dinner Picker</h1>
-    </header>
-    <section id="list-of-options-section">
-      <ul id="list-of-options-ul"></ul>
-    </section>
-    <section id="current-pick-section">
-      <p>The current pick is: <span id="current-pick-span">empty</span></p>
-      <button id="pick-button" onclick="pickButtonOnClick()">
-        Randomly Pick a New Place!
-      </button>
-    </section>
-    <section id="add-place-section"></section>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <Title>Dinner Picker</Title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="scripts/index.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Dinner Picker</h1>
+  </header>
+  <div class="container">
+    <div class="first-area">
+      <header>
+        <h2>Current Pick and Choices</h2>
+      </header>
+      <section id="current-pick-section">
+        <p>The current pick is: <span id="current-pick-span">empty</span></p>
+
+        <button id="pick-button" onclick="randomlyPickPlace()">
+          Randomly Pick a New Place!
+        </button>
+        <br>
+        <button id="approve-button" onclick="approveCurrentPick()">Approve This Place!</button>
+        <br>
+        <button id="veto-button" onclick="vetoCurrentPick()">Veto This Place!</button>
+      </section>
+      <section id="list-of-options-section">
+        <ul id="list-of-options-ul"></ul>
+      </section>
+    </div>
+    <div class="second-area">
+      <header>
+        <h2>Approved Places</h2>
+      </header>
+      <section id="approved-buttons-section">
+        <button id="move-approved-to-current" onclick="moveApprovedToCurrent()">Move Approved to Current</button>
+        <br>
+        <button id="undo-last-approval" onclick="undoLastApproval()">Undo Last Approval</button>
+      </section>
+      <section id="list-of-approved-section">
+        <ul id="list-of-approved-ul"></ul>
+    </div>
+    <div class="second-area">
+      <header>
+        <h2>Vetoed Places</h2>
+      </header>
+      <section id="vetoed-buttons-section">
+        <button id="undo-last-vetoed" onclick="undoLastVeto()">Undo Last Veto</button>
+      </section>
+      <section id="list-of-vetoed-section">
+        <ul id="list-of-vetoed-ul"></ul>
+      </section>
+    </div>
+    <div class="fourth-area">
+      <header>
+        <h2>Add a Place</h2>
+      </header>
+      <p>This section is not yet ready</p>
+    </div>
+  </div>
+</body>
+
 </html>

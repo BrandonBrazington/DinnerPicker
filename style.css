@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+button {
+  /* min-width: 200px; */
+  width: 75%;
+  padding: 5px;
+  margin: 5px;
+}
+
+#current-pick-span {
+  color: darkgreen;
+  text-decoration: underline;
+}
+
+#current-pick-section {
+  font-size: 1.25em;
+}
