@@ -16,6 +16,11 @@ function loadPlaces(listUL, arrayOfPlaces) {
 }
 
 function randomlyPickPlace() {
+    if (placesArray.length == 0 && approvedPlaces.length == 1) {
+        document.getElementById("current-pick-span").innerHTML = approvedPlaces[0];
+        window.alert(`The winning destination is ${approvedPlaces[0]}`);
+        return;
+    }
     currentPick = placesArray[Math.floor(Math.random() * placesArray.length)];
     document.getElementById("current-pick-span").innerHTML = currentPick;
 }
@@ -43,6 +48,7 @@ function vetoCurrentPick() {
 }
 
 function moveApprovedToCurrent() {
+    if (approvedPlaces.length == 0) return;
     placesArray = [...placesArray, ...approvedPlaces]
     approvedPlaces = [];
     loadPlaces(document.getElementById("list-of-options-ul"), placesArray);
@@ -51,12 +57,14 @@ function moveApprovedToCurrent() {
 }
 
 function undoLastApproval() {
+    if (approvedPlaces.length == 0) return;
     placesArray.push(approvedPlaces.splice(approvedPlaces.length - 1));
     loadPlaces(document.getElementById("list-of-options-ul"), placesArray);
     loadPlaces(document.getElementById("list-of-approved-ul"), approvedPlaces);
 }
 
 function undoLastVeto() {
+    if (vetoedPlaces.length == 0) return;
     placesArray.push(vetoedPlaces.splice(vetoedPlaces.length - 1));
     loadPlaces(document.getElementById("list-of-options-ul"), placesArray);
     loadPlaces(document.getElementById("list-of-vetoed-ul"), vetoedPlaces);
